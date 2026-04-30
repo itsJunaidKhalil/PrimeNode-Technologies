@@ -1,0 +1,41 @@
+{
+  "brand": {
+    "blue": {
+      "hex": "#0B52EC",
+      "rgb": "11, 82, 236",
+      "usage": "Primary CTAs, links, highlights, icon fills"
+    },
+    "blueHover": {
+      "hex": "#073BC0",
+      "rgb": "7, 59, 192",
+      "usage": "Primary button/link hover state"
+    },
+    "navy": {
+      "hex": "#122359",
+      "rgb": "18, 35, 89",
+      "usage": "Hero backgrounds, dark sections, headings"
+    },
+    "navyLight": {
+      "hex": "#1a316f",
+      "rgb": "26, 49, 111",
+      "usage": "Hover states on navy, gradients"
+    },
+    "blueLight": {
+      "hex": "#EEF4FF",
+      "rgb": "238, 244, 255",
+      "usage": "Alternate section backgrounds"
+    },
+    "blueMid": {
+      "hex": "#DBEAFE",
+      "rgb": "219, 234, 254",
+      "usage": "Card highlights, tag backgrounds"
+    }
+  },
+  "neutral": {
+    "white": "#FFFFFF",
+    "slate50": "#F8FAFC",
+    "slate200": "#E2E8F0",
+    "slate600": "#475569",
+    "slate900": "#0F172A"
+  }
+}
