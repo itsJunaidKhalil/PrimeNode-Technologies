@@ -5,6 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { clsx } from "clsx";
 import { ChevronDown, Menu, X } from "lucide-react";
+import { useI18n } from "@/components/i18n/I18nProvider";
+import LanguageSwitcher from "@/components/i18n/LanguageSwitcher";
 
 const serviceLinks = [
   { label: "On-site IT Support", href: "/services/on-site-it-support" },
@@ -16,6 +18,7 @@ const serviceLinks = [
 ];
 
 export default function Navbar() {
+  const { t } = useI18n();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
@@ -36,37 +39,37 @@ export default function Navbar() {
       )}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between min-h-[4.75rem] py-2">
-          <Link href="/" className="flex items-center shrink-0">
+        <div className="flex items-center justify-between gap-3 min-h-[4.25rem] sm:min-h-[4.75rem] py-2">
+          <Link href="/" className="flex items-center shrink-0 min-w-0">
             <Image
               src="/logos/logo-primary.png"
               alt="PrimeNode Technologies"
               width={340}
               height={102}
-              className="h-14 sm:h-16 md:h-[4.25rem] w-auto object-contain object-left"
+              className="h-11 sm:h-14 md:h-16 lg:h-[4.25rem] w-auto max-w-[min(52vw,220px)] sm:max-w-none object-contain object-left"
               priority
             />
           </Link>
 
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6 lg:gap-8">
             <Link
               href="/"
               className="font-medium text-slate-700 hover:text-brand-blue transition-colors duration-200 text-sm tracking-wide relative after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-brand-blue after:transition-all hover:after:w-full"
             >
-              Home
+              {t("nav.home")}
             </Link>
             <Link
               href="/about"
               className="font-medium text-slate-700 hover:text-brand-blue transition-colors duration-200 text-sm tracking-wide relative after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-brand-blue after:transition-all hover:after:w-full"
             >
-              About
+              {t("nav.about")}
             </Link>
             <div className="relative group">
               <Link
                 href="/services"
                 className="font-medium text-slate-700 hover:text-brand-blue transition-colors duration-200 text-sm tracking-wide inline-flex items-center gap-1"
               >
-                Services <ChevronDown size={14} className="mt-0.5" />
+                {t("nav.services")} <ChevronDown size={14} className="mt-0.5" />
               </Link>
               <div className="absolute left-1/2 -translate-x-1/2 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                 <div className="w-72 bg-white border border-brand-blue/15 rounded-xl shadow-lg p-2">
@@ -86,23 +89,27 @@ export default function Navbar() {
               href="/contact"
               className="font-medium text-slate-700 hover:text-brand-blue transition-colors duration-200 text-sm tracking-wide relative after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-brand-blue after:transition-all hover:after:w-full"
             >
-              Contact
+              {t("nav.contact")}
             </Link>
+            <LanguageSwitcher />
             <Link
               href="/contact"
               className="bg-brand-blue text-white px-5 py-2.5 rounded-xl text-sm font-semibold transition-colors duration-200 shadow-[0_4px_12px_rgba(11,82,236,0.35)] hover:bg-brand-blue-hover"
             >
-              Get a Quote
+              {t("nav.getQuote")}
             </Link>
           </div>
 
-          <button
-            onClick={() => setIsMobileOpen(!isMobileOpen)}
-            className="md:hidden p-2 rounded-lg text-slate-700 hover:bg-brand-blue-light transition-colors"
-            aria-label="Toggle menu"
-          >
-            {isMobileOpen ? <X size={22} /> : <Menu size={22} />}
-          </button>
+          <div className="flex md:hidden items-center gap-2 shrink-0">
+            <LanguageSwitcher />
+            <button
+              onClick={() => setIsMobileOpen(!isMobileOpen)}
+              className="p-2.5 rounded-lg text-slate-700 hover:bg-brand-blue-light transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
+              aria-label="Toggle menu"
+            >
+              {isMobileOpen ? <X size={22} /> : <Menu size={22} />}
+            </button>
+          </div>
         </div>
 
         {isMobileOpen && (
@@ -110,22 +117,23 @@ export default function Navbar() {
             <Link
               href="/"
               onClick={() => setIsMobileOpen(false)}
-              className="block px-4 py-3 text-slate-700 font-medium rounded-lg hover:bg-brand-blue-light hover:text-brand-blue transition-colors"
+              className="block px-4 py-3 text-slate-700 font-medium rounded-lg hover:bg-brand-blue-light hover:text-brand-blue transition-colors min-h-[44px] flex items-center"
             >
-              Home
+              {t("nav.home")}
             </Link>
             <Link
               href="/about"
               onClick={() => setIsMobileOpen(false)}
-              className="block px-4 py-3 text-slate-700 font-medium rounded-lg hover:bg-brand-blue-light hover:text-brand-blue transition-colors"
+              className="block px-4 py-3 text-slate-700 font-medium rounded-lg hover:bg-brand-blue-light hover:text-brand-blue transition-colors min-h-[44px] flex items-center"
             >
-              About
+              {t("nav.about")}
             </Link>
             <button
               onClick={() => setIsMobileServicesOpen((prev) => !prev)}
-              className="w-full flex items-center justify-between px-4 py-3 text-slate-700 font-medium rounded-lg hover:bg-brand-blue-light hover:text-brand-blue transition-colors"
+              className="w-full flex items-center justify-between px-4 py-3 text-slate-700 font-medium rounded-lg hover:bg-brand-blue-light hover:text-brand-blue transition-colors min-h-[44px]"
             >
-              Services <ChevronDown size={16} className={clsx("transition-transform", isMobileServicesOpen && "rotate-180")} />
+              {t("nav.services")}{" "}
+              <ChevronDown size={16} className={clsx("transition-transform shrink-0", isMobileServicesOpen && "rotate-180")} />
             </button>
             {isMobileServicesOpen && (
               <div className="px-2 pb-2">
@@ -144,17 +152,17 @@ export default function Navbar() {
             <Link
               href="/contact"
               onClick={() => setIsMobileOpen(false)}
-              className="block px-4 py-3 text-slate-700 font-medium rounded-lg hover:bg-brand-blue-light hover:text-brand-blue transition-colors"
+              className="block px-4 py-3 text-slate-700 font-medium rounded-lg hover:bg-brand-blue-light hover:text-brand-blue transition-colors min-h-[44px] flex items-center"
             >
-              Contact
+              {t("nav.contact")}
             </Link>
             <div className="mt-3 px-4">
               <Link
                 href="/contact"
                 onClick={() => setIsMobileOpen(false)}
-                className="block text-center bg-brand-blue text-white px-5 py-3 rounded-lg font-semibold hover:bg-brand-blue-hover transition-colors"
+                className="block text-center bg-brand-blue text-white px-5 py-3.5 rounded-lg font-semibold hover:bg-brand-blue-hover transition-colors min-h-[48px] flex items-center justify-center"
               >
-                Get a Quote
+                {t("nav.getQuote")}
               </Link>
             </div>
           </div>

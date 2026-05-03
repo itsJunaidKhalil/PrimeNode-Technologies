@@ -3,6 +3,7 @@ import { Manrope, Sora } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import { Providers } from "./providers";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -59,9 +60,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${manrope.variable} ${sora.variable} scroll-smooth`}>
       <body className="min-h-screen flex flex-col text-slate-900 antialiased">
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <Providers>
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

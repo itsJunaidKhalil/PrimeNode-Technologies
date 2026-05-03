@@ -97,17 +97,22 @@ export default function ServicesPage() {
           })}
         </div>
 
-        <div className="mt-12 p-6 md:p-8 rounded-2xl border border-brand-blue/15 bg-brand-blue-light/40">
-          <p className="text-sm text-slate-600 leading-relaxed mb-4">
-            Need help choosing the right service combination? We map your scope to the fastest low-risk delivery plan.
-          </p>
-          <div className="flex flex-wrap gap-3">
-            <Button href="/contact" variant="primary" size="md">
-              Talk to Our Team <ArrowRight size={16} />
-            </Button>
-            <Link href="/about" className="inline-flex items-center text-sm font-semibold text-brand-blue hover:text-brand-blue-hover">
-              Learn how we work
-            </Link>
+        <div className="mt-12 rounded-2xl border border-brand-blue/15 bg-brand-blue-light/40 p-6 sm:p-8">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between lg:gap-10">
+            <p className="text-sm text-slate-600 leading-relaxed text-center lg:text-left lg:max-w-2xl lg:flex-1">
+              Need help choosing the right service combination? We map your scope to the fastest low-risk delivery plan.
+            </p>
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-center lg:justify-end gap-3 sm:gap-4 shrink-0">
+              <Button href="/contact" variant="primary" size="md" className="w-full sm:w-auto justify-center">
+                Talk to Our Team <ArrowRight size={16} />
+              </Button>
+              <Link
+                href="/about"
+                className="inline-flex items-center justify-center sm:justify-start text-sm font-semibold text-brand-blue hover:text-brand-blue-hover py-2"
+              >
+                Learn how we work
+              </Link>
+            </div>
           </div>
         </div>
       </SectionWrapper>

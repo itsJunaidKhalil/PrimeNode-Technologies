@@ -1,0 +1,228 @@
+import type { Locale } from "./types";
+
+export type MessageKey =
+  | "nav.home"
+  | "nav.about"
+  | "nav.services"
+  | "nav.contact"
+  | "nav.getQuote"
+  | "footer.tagline"
+  | "footer.company"
+  | "footer.services"
+  | "footer.contact"
+  | "footer.copyright"
+  | "footer.legal"
+  | "footer.wfoe"
+  | "footer.address"
+  | "lang.label"
+  | "hero.badge"
+  | "hero.line1Before"
+  | "hero.line1Accent"
+  | "hero.line2Accent"
+  | "hero.line2After"
+  | "hero.subtitle"
+  | "hero.ctaPrimary"
+  | "hero.ctaSecondary"
+  | "hero.coreOps"
+  | "badge.eu"
+  | "badge.fast"
+  | "badge.nationwide";
+
+const en: Record<MessageKey, string> = {
+  "nav.home": "Home",
+  "nav.about": "About",
+  "nav.services": "Services",
+  "nav.contact": "Contact",
+  "nav.getQuote": "Get a Quote",
+  "footer.tagline":
+    "Your trusted China IT execution partner. EU-grade quality, China-speed delivery — from Shenzhen to nationwide.",
+  "footer.company": "Company",
+  "footer.services": "Services",
+  "footer.contact": "Contact",
+  "footer.copyright": "All rights reserved.",
+  "footer.legal":
+    "© {year} PrimeNode Technologies Shenzhen Co. All rights reserved.",
+  "footer.wfoe": "Registered WFOE · Shenzhen, China",
+  "footer.address": "Nanshan District, Shenzhen\nGuangdong, China",
+  "lang.label": "Language",
+  "hero.badge": "WFOE Registered · Shenzhen, China",
+  "hero.line1Before": "Your Trusted ",
+  "hero.line1Accent": "China IT",
+  "hero.line2Accent": "Execution",
+  "hero.line2After": " Partner",
+  "hero.subtitle":
+    "We enable global MSPs, system integrators, and IT companies to operate efficiently in China — with local execution built on international standards.",
+  "hero.ctaPrimary": "Start Your Project",
+  "hero.ctaSecondary": "Explore Services",
+  "hero.coreOps": "Core Operations",
+  "badge.eu": "EU-Grade Standards",
+  "badge.fast": "Fast Turnaround",
+  "badge.nationwide": "China Nationwide",
+};
+
+const translations: Record<Locale, Record<MessageKey, string>> = {
+  en,
+  zh: {
+    ...en,
+    "nav.home": "首页",
+    "nav.about": "关于我们",
+    "nav.services": "服务",
+    "nav.contact": "联系",
+    "nav.getQuote": "获取报价",
+    "footer.tagline":
+      "您值得信赖的中国 IT 执行伙伴。欧标质量、中国速度交付——从深圳到全国。",
+    "footer.company": "公司",
+    "footer.services": "服务",
+    "footer.contact": "联系方式",
+    "footer.copyright": "保留所有权利。",
+    "footer.legal": "© {year} PrimeNode Technologies Shenzhen Co. 保留所有权利。",
+    "footer.wfoe": "注册 WFOE · 中国深圳",
+    "footer.address": "深圳市南山区\n广东省，中国",
+    "lang.label": "语言",
+    "hero.badge": "WFOE 注册 · 中国深圳",
+    "hero.line1Before": "您值得信赖的 ",
+    "hero.line1Accent": "中国 IT",
+    "hero.line2Accent": "执行",
+    "hero.line2After": " 伙伴",
+    "hero.subtitle":
+      "我们帮助全球 MSP、系统集成商与 IT 企业在华高效运营——以国际标准落地本地执行。",
+    "hero.ctaPrimary": "启动项目",
+    "hero.ctaSecondary": "了解服务",
+    "hero.coreOps": "核心业务",
+    "badge.eu": "欧标水准",
+    "badge.fast": "快速交付",
+    "badge.nationwide": "全国覆盖",
+  },
+  sr: {
+    ...en,
+    "nav.home": "Početak",
+    "nav.about": "O nama",
+    "nav.services": "Usluge",
+    "nav.contact": "Kontakt",
+    "nav.getQuote": "Zatražite ponudu",
+    "footer.tagline":
+      "Vaš pouzdan partner za IT izvršenje u Kini. Kvalitet EU nivoa, isporuka kineske brzine — od Šendžena do celokupne zemlje.",
+    "footer.company": "Kompanija",
+    "footer.services": "Usluge",
+    "footer.contact": "Kontakt",
+    "footer.copyright": "Sva prava zadržana.",
+    "footer.legal":
+      "© {year} PrimeNode Technologies Shenzhen Co. Sva prava zadržana.",
+    "footer.wfoe": "Registrovano WFOE · Šendžen, Kina",
+    "footer.address": "Okrug Nanshan, Šendžen\nPokrajina Guandong, Kina",
+    "lang.label": "Jezik",
+    "hero.badge": "WFOE registrovano · Šendžen, Kina",
+    "hero.line1Before": "Vaš pouzdan ",
+    "hero.line1Accent": "Kina IT",
+    "hero.line2Accent": "izvršni",
+    "hero.line2After": " partner",
+    "hero.subtitle":
+      "Omogućavamo globalnim MSP, sistemskim integratorima i IT kompanijama da efikasno rade u Kini — lokalno izvršenje po međunarodnim standardima.",
+    "hero.ctaPrimary": "Započnite projekat",
+    "hero.ctaSecondary": "Istražite usluge",
+    "hero.coreOps": "Osnovne operacije",
+    "badge.eu": "Standardi EU",
+    "badge.fast": "Brza isporuka",
+    "badge.nationwide": "Kina — širom zemlje",
+  },
+  de: {
+    ...en,
+    "nav.home": "Start",
+    "nav.about": "Über uns",
+    "nav.services": "Leistungen",
+    "nav.contact": "Kontakt",
+    "nav.getQuote": "Angebot anfordern",
+    "footer.tagline":
+      "Ihr verlässlicher China-IT-Execution-Partner. EU-Qualität, China-Tempo — von Shenzhen bis landesweit.",
+    "footer.company": "Unternehmen",
+    "footer.services": "Leistungen",
+    "footer.contact": "Kontakt",
+    "footer.copyright": "Alle Rechte vorbehalten.",
+    "footer.legal":
+      "© {year} PrimeNode Technologies Shenzhen Co. Alle Rechte vorbehalten.",
+    "footer.wfoe": "Eingetragenes WFOE · Shenzhen, China",
+    "footer.address": "Bezirk Nanshan, Shenzhen\nGuangdong, China",
+    "lang.label": "Sprache",
+    "hero.badge": "WFOE registriert · Shenzhen, China",
+    "hero.line1Before": "Ihr vertrauenswürdiger ",
+    "hero.line1Accent": "China-IT-",
+    "hero.line2Accent": "Execution",
+    "hero.line2After": " Partner",
+    "hero.subtitle":
+      "Wir helfen globalen MSPs, Systemintegratoren und IT-Unternehmen, in China effizient zu arbeiten — mit lokaler Umsetzung nach internationalen Standards.",
+    "hero.ctaPrimary": "Projekt starten",
+    "hero.ctaSecondary": "Leistungen",
+    "hero.coreOps": "Kernleistungen",
+    "badge.eu": "EU-Standards",
+    "badge.fast": "Schnelle Umsetzung",
+    "badge.nationwide": "China-weit",
+  },
+  it: {
+    ...en,
+    "nav.home": "Home",
+    "nav.about": "Chi siamo",
+    "nav.services": "Servizi",
+    "nav.contact": "Contatti",
+    "nav.getQuote": "Richiedi preventivo",
+    "footer.tagline":
+      "Il vostro partner affidabile per l’esecuzione IT in Cina. Qualità standard UE, tempi cinesi — da Shenzhen a tutto il paese.",
+    "footer.company": "Azienda",
+    "footer.services": "Servizi",
+    "footer.contact": "Contatti",
+    "footer.copyright": "Tutti i diritti riservati.",
+    "footer.legal":
+      "© {year} PrimeNode Technologies Shenzhen Co. Tutti i diritti riservati.",
+    "footer.wfoe": "WFOE registrata · Shenzhen, Cina",
+    "footer.address": "Distretto Nanshan, Shenzhen\nGuangdong, Cina",
+    "lang.label": "Lingua",
+    "hero.badge": "WFOE registrata · Shenzhen, Cina",
+    "hero.line1Before": "Il vostro partner ",
+    "hero.line1Accent": "IT in Cina",
+    "hero.line2Accent": "Execution",
+    "hero.line2After": " affidabile",
+    "hero.subtitle":
+      "Supportiamo MSP globali, system integrator e aziende IT a operare in Cina con esecuzione locale secondo standard internazionali.",
+    "hero.ctaPrimary": "Avvia il progetto",
+    "hero.ctaSecondary": "Scopri i servizi",
+    "hero.coreOps": "Operazioni principali",
+    "badge.eu": "Standard UE",
+    "badge.fast": "Tempi rapidi",
+    "badge.nationwide": "Copertura nazionale",
+  },
+  ar: {
+    ...en,
+    "nav.home": "الرئيسية",
+    "nav.about": "من نحن",
+    "nav.services": "الخدمات",
+    "nav.contact": "اتصل بنا",
+    "nav.getQuote": "طلب عرض سعر",
+    "footer.tagline":
+      "شريككم الموثوق لتنفيذ تكنولوجيا المعلومات في الصين. جودة بمستوى أوروبي وسرعة التنفيذ في الصين — من شنتشن إلى كامل البلاد.",
+    "footer.company": "الشركة",
+    "footer.services": "الخدمات",
+    "footer.contact": "التواصل",
+    "footer.copyright": "جميع الحقوق محفوظة.",
+    "footer.legal":
+      "© {year} PrimeNode Technologies Shenzhen Co. جميع الحقوق محفوظة.",
+    "footer.wfoe": "شركة WFOE مسجلة · شنتشن، الصين",
+    "footer.address": "منطقة نانشان، شنتشن\nقوانغدونغ، الصين",
+    "lang.label": "اللغة",
+    "hero.badge": "مسجلة WFOE · شنتشن، الصين",
+    "hero.line1Before": "شريككم الموثوق لتنفيذ ",
+    "hero.line1Accent": "تقنية المعلومات في الصين",
+    "hero.line2Accent": "",
+    "hero.line2After": "",
+    "hero.subtitle":
+      "نساعد مزودي الخدمات والشركات العالمية على العمل بكفاءة في الصين — بتنفيذ محلي وفق المعايير الدولية.",
+    "hero.ctaPrimary": "ابدأ مشروعك",
+    "hero.ctaSecondary": "استكشف الخدمات",
+    "hero.coreOps": "العمليات الأساسية",
+    "badge.eu": "معايير أوروبية",
+    "badge.fast": "تنفيذ سريع",
+    "badge.nationwide": "على مستوى الصين",
+  },
+};
+
+export function getMessage(locale: Locale, key: MessageKey): string {
+  return translations[locale][key] ?? en[key] ?? key;
+}
