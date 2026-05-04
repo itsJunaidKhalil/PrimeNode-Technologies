@@ -1,67 +1,10 @@
 import type { Locale } from "./types";
+import { en, type MessageKey } from "./dictionaries/en";
 
-export type MessageKey =
-  | "nav.home"
-  | "nav.about"
-  | "nav.services"
-  | "nav.contact"
-  | "nav.getQuote"
-  | "footer.tagline"
-  | "footer.company"
-  | "footer.services"
-  | "footer.contact"
-  | "footer.copyright"
-  | "footer.legal"
-  | "footer.wfoe"
-  | "footer.address"
-  | "lang.label"
-  | "hero.badge"
-  | "hero.line1Before"
-  | "hero.line1Accent"
-  | "hero.line2Accent"
-  | "hero.line2After"
-  | "hero.subtitle"
-  | "hero.ctaPrimary"
-  | "hero.ctaSecondary"
-  | "hero.coreOps"
-  | "badge.eu"
-  | "badge.fast"
-  | "badge.nationwide";
-
-const en: Record<MessageKey, string> = {
-  "nav.home": "Home",
-  "nav.about": "About",
-  "nav.services": "Services",
-  "nav.contact": "Contact",
-  "nav.getQuote": "Get a Quote",
-  "footer.tagline":
-    "Your trusted China IT execution partner. EU-grade quality, China-speed delivery — from Shenzhen to nationwide.",
-  "footer.company": "Company",
-  "footer.services": "Services",
-  "footer.contact": "Contact",
-  "footer.copyright": "All rights reserved.",
-  "footer.legal":
-    "© {year} PrimeNode Technologies Shenzhen Co. All rights reserved.",
-  "footer.wfoe": "Registered WFOE · Shenzhen, China",
-  "footer.address": "Nanshan District, Shenzhen\nGuangdong, China",
-  "lang.label": "Language",
-  "hero.badge": "WFOE Registered · Shenzhen, China",
-  "hero.line1Before": "Your Trusted ",
-  "hero.line1Accent": "China IT",
-  "hero.line2Accent": "Execution",
-  "hero.line2After": " Partner",
-  "hero.subtitle":
-    "We enable global MSPs, system integrators, and IT companies to operate efficiently in China — with local execution built on international standards.",
-  "hero.ctaPrimary": "Start Your Project",
-  "hero.ctaSecondary": "Explore Services",
-  "hero.coreOps": "Core Operations",
-  "badge.eu": "EU-Grade Standards",
-  "badge.fast": "Fast Turnaround",
-  "badge.nationwide": "China Nationwide",
-};
+export type { MessageKey };
 
 const translations: Record<Locale, Record<MessageKey, string>> = {
-  en,
+  en: { ...en },
   zh: {
     ...en,
     "nav.home": "首页",
@@ -224,5 +167,6 @@ const translations: Record<Locale, Record<MessageKey, string>> = {
 };
 
 export function getMessage(locale: Locale, key: MessageKey): string {
-  return translations[locale][key] ?? en[key] ?? key;
+  const row = translations[locale];
+  return row[key] ?? translations.en[key] ?? String(key);
 }

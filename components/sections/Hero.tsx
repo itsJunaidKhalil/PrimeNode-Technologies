@@ -4,16 +4,23 @@ import { motion } from "framer-motion";
 import Button from "@/components/ui/Button";
 import { ArrowRight, Shield, Zap, Globe } from "lucide-react";
 import { useI18n } from "@/components/i18n/I18nProvider";
+import type { MessageKey } from "@/lib/i18n/messages";
 
 const badgeIcons = [Shield, Zap, Globe] as const;
 const badgeKeys = ["badge.eu", "badge.fast", "badge.nationwide"] as const;
+
+const opKeys: { title: MessageKey; desc: MessageKey; color: string }[] = [
+  { title: "hero.op.0.title", desc: "hero.op.0.desc", color: "bg-brand-blue" },
+  { title: "hero.op.1.title", desc: "hero.op.1.desc", color: "bg-emerald-500" },
+  { title: "hero.op.2.title", desc: "hero.op.2.desc", color: "bg-purple-500" },
+  { title: "hero.op.3.title", desc: "hero.op.3.desc", color: "bg-orange-500" },
+];
 
 export default function Hero() {
   const { t } = useI18n();
 
   return (
     <section className="relative min-h-0 md:min-h-[calc(100vh-1px)] flex items-center bg-white overflow-hidden border-b border-brand-blue/10">
-      {/* Decorative shapes — lighter on mobile */}
       <div
         className="pointer-events-none absolute -left-16 top-16 h-48 w-48 sm:-left-24 sm:top-24 sm:h-72 sm:w-72 rounded-full border-[18px] sm:border-[24px] border-brand-blue/10 max-md:opacity-40"
         aria-hidden
@@ -43,15 +50,15 @@ export default function Hero() {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-12 sm:pt-28 sm:pb-16 md:pt-36 md:pb-24">
         <div className="grid lg:grid-cols-[1.08fr_0.92fr] gap-10 lg:gap-24 items-center">
-          <div className="relative z-10 lg:pr-6">
-            <div>
-              <span className="inline-flex items-center gap-2 bg-white border border-brand-blue/20 rounded-full px-3 py-1.5 sm:px-4 sm:py-1.5 text-xs sm:text-sm font-medium mb-5 sm:mb-6 text-brand-navy shadow-sm max-w-full">
+          <div className="relative z-10 lg:pr-6 text-center lg:text-left">
+            <div className="flex justify-center lg:justify-start">
+              <span className="inline-flex items-center justify-center gap-2 bg-white border border-brand-blue/20 rounded-full px-3 py-1.5 sm:px-4 sm:py-1.5 text-xs sm:text-sm font-medium mb-5 sm:mb-6 text-brand-navy shadow-sm max-w-full text-center">
                 <span className="w-2 h-2 bg-brand-blue rounded-full animate-pulse shrink-0" />
-                <span className="text-left leading-snug">{t("hero.badge")}</span>
+                <span className="leading-snug">{t("hero.badge")}</span>
               </span>
             </div>
 
-            <h1 className="text-[2rem] leading-[1.1] sm:text-5xl md:text-6xl lg:text-[4.2rem] font-bold tracking-tight">
+            <h1 className="text-[2.35rem] leading-[1.12] sm:text-5xl md:text-6xl lg:text-[4.2rem] font-bold tracking-tight text-balance">
               <span className="block text-brand-navy lg:whitespace-nowrap">
                 {t("hero.line1Before")}
                 <span className="text-brand-blue">{t("hero.line1Accent")}</span>
@@ -64,25 +71,25 @@ export default function Hero() {
               )}
             </h1>
 
-            <p className="mt-5 sm:mt-6 text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl">
+            <p className="mt-5 sm:mt-6 text-base sm:text-lg md:text-[1.125rem] text-slate-600 leading-relaxed max-w-xl mx-auto lg:mx-0">
               {t("hero.subtitle")}
             </p>
 
-            <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
-              <Button href="/contact" variant="primary" size="lg" className="w-full sm:w-auto justify-center">
+            <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 max-w-md mx-auto lg:max-w-none lg:mx-0 w-full sm:w-auto">
+              <Button href="/contact" variant="primary" size="lg" className="w-full sm:w-auto justify-center min-h-[48px]">
                 {t("hero.ctaPrimary")} <ArrowRight size={18} />
               </Button>
               <Button
                 href="/services"
                 variant="outline"
                 size="lg"
-                className="w-full sm:w-auto justify-center border-brand-navy/25 text-brand-navy hover:bg-brand-navy hover:text-white hover:border-brand-navy"
+                className="w-full sm:w-auto justify-center min-h-[48px] border-brand-navy/25 text-brand-navy hover:bg-brand-navy hover:text-white hover:border-brand-navy"
               >
                 {t("hero.ctaSecondary")}
               </Button>
             </div>
 
-            <div className="mt-10 sm:mt-12 flex flex-wrap gap-2 sm:gap-3">
+            <div className="mt-10 sm:mt-12 flex flex-wrap gap-2 sm:gap-3 justify-center lg:justify-start">
               {badgeKeys.map((key, i) => {
                 const Icon = badgeIcons[i];
                 return (
@@ -91,7 +98,7 @@ export default function Hero() {
                     className="flex items-center gap-2 bg-white border border-brand-blue/20 rounded-full px-3 py-2 sm:px-4 shadow-sm max-w-full"
                   >
                     <Icon size={14} className="text-brand-blue shrink-0" />
-                    <span className="text-slate-700 text-xs sm:text-sm font-medium leading-snug">
+                    <span className="text-slate-700 text-xs sm:text-sm font-medium leading-snug text-left">
                       {t(key)}
                     </span>
                   </div>
@@ -107,36 +114,15 @@ export default function Hero() {
                   {t("hero.coreOps")}
                 </p>
                 <div className="space-y-3">
-                  {[
-                    {
-                      title: "On-Site IT Support",
-                      desc: "Field engineers across China",
-                      color: "bg-brand-blue",
-                    },
-                    {
-                      title: "Staging & Validation",
-                      desc: "Pre-deployment QA & testing",
-                      color: "bg-emerald-500",
-                    },
-                    {
-                      title: "Data Center Services",
-                      desc: "Rack, stack & cabling",
-                      color: "bg-purple-500",
-                    },
-                    {
-                      title: "Local Coordination",
-                      desc: "EU timezone aligned support",
-                      color: "bg-orange-500",
-                    },
-                  ].map((item) => (
+                  {opKeys.map((item) => (
                     <div
                       key={item.title}
                       className="flex items-center gap-4 bg-brand-slate/70 rounded-xl p-4 border border-brand-blue/10"
                     >
-                      <div className={`w-2.5 h-2.5 rounded-full ${item.color} shrink-0`} />
+                      <div className={`w-2.5 h-2.5 rounded-full shrink-0 ${item.color}`} />
                       <div>
-                        <p className="text-brand-navy font-medium text-sm">{item.title}</p>
-                        <p className="text-slate-500 text-xs">{item.desc}</p>
+                        <p className="text-brand-navy font-medium text-sm">{t(item.title)}</p>
+                        <p className="text-slate-500 text-xs">{t(item.desc)}</p>
                       </div>
                     </div>
                   ))}
@@ -144,15 +130,15 @@ export default function Hero() {
               </div>
 
               <div className="absolute -top-5 -right-5 bg-brand-blue rounded-xl p-4 shadow-lg shadow-brand-blue/30">
-                <p className="text-white/90 text-xs font-medium">Coverage</p>
-                <p className="text-white text-2xl font-bold mt-0.5">4+</p>
-                <p className="text-white/80 text-xs">Major Cities</p>
+                <p className="text-white/90 text-xs font-medium">{t("hero.side.cov.label")}</p>
+                <p className="text-white text-2xl font-bold mt-0.5">{t("hero.side.cov.val")}</p>
+                <p className="text-white/80 text-xs">{t("hero.side.cov.sub")}</p>
               </div>
 
               <div className="absolute -bottom-5 -left-5 bg-white rounded-xl p-4 border border-brand-blue/20 shadow-md">
-                <p className="text-slate-500 text-xs font-medium">Quality</p>
-                <p className="text-brand-navy text-2xl font-bold mt-0.5">100%</p>
-                <p className="text-slate-400 text-xs">Pre-validated</p>
+                <p className="text-slate-500 text-xs font-medium">{t("hero.side.qual.label")}</p>
+                <p className="text-brand-navy text-2xl font-bold mt-0.5">{t("hero.side.qual.val")}</p>
+                <p className="text-slate-400 text-xs">{t("hero.side.qual.sub")}</p>
               </div>
             </div>
           </div>

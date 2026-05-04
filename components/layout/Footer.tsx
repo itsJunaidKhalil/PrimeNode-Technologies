@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { MapPin, Mail, Phone, Globe } from "lucide-react";
 import { useI18n } from "@/components/i18n/I18nProvider";
+import type { MessageKey } from "@/lib/i18n/messages";
 
 function LinkedinIcon({ size = 16 }: { size?: number }) {
   return (
@@ -14,19 +15,22 @@ function LinkedinIcon({ size = 16 }: { size?: number }) {
   );
 }
 
-const footerLinks = {
+const footerLinks: {
+  company: { labelKey: MessageKey; href: string }[];
+  services: { labelKey: MessageKey; href: string }[];
+} = {
   company: [
-    { labelKey: "nav.about" as const, href: "/about" },
-    { labelKey: "nav.services" as const, href: "/services" },
-    { labelKey: "nav.contact" as const, href: "/contact" },
+    { labelKey: "nav.about", href: "/about" },
+    { labelKey: "nav.services", href: "/services" },
+    { labelKey: "nav.contact", href: "/contact" },
   ],
   services: [
-    { label: "On-site IT Support", href: "/services/on-site-it-support" },
-    { label: "Data Center Services", href: "/services/data-center-services" },
-    { label: "Staging Services", href: "/services/staging-services" },
-    { label: "Pre-Deployment Validation", href: "/services/pre-deployment-validation" },
-    { label: "Deployment Assurance", href: "/services/deployment-assurance" },
-    { label: "Local Coordination", href: "/services/local-coordination" },
+    { labelKey: "nav.svc.onsite", href: "/services/on-site-it-support" },
+    { labelKey: "nav.svc.datacenter", href: "/services/data-center-services" },
+    { labelKey: "nav.svc.staging", href: "/services/staging-services" },
+    { labelKey: "nav.svc.validation", href: "/services/pre-deployment-validation" },
+    { labelKey: "nav.svc.assurance", href: "/services/deployment-assurance" },
+    { labelKey: "nav.svc.coordination", href: "/services/local-coordination" },
   ],
 };
 
@@ -112,7 +116,7 @@ export default function Footer() {
                     href={link.href}
                     className="text-slate-600 hover:text-brand-blue text-sm transition-colors inline-block py-1"
                   >
-                    {link.label}
+                    {t(link.labelKey)}
                   </Link>
                 </li>
               ))}

@@ -7,14 +7,15 @@ import { clsx } from "clsx";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { useI18n } from "@/components/i18n/I18nProvider";
 import LanguageSwitcher from "@/components/i18n/LanguageSwitcher";
+import type { MessageKey } from "@/lib/i18n/messages";
 
-const serviceLinks = [
-  { label: "On-site IT Support", href: "/services/on-site-it-support" },
-  { label: "Data Center Services", href: "/services/data-center-services" },
-  { label: "Staging Services", href: "/services/staging-services" },
-  { label: "Pre-Deployment Validation", href: "/services/pre-deployment-validation" },
-  { label: "Deployment Assurance", href: "/services/deployment-assurance" },
-  { label: "Local Coordination", href: "/services/local-coordination" },
+const serviceLinks: { href: string; labelKey: MessageKey }[] = [
+  { href: "/services/on-site-it-support", labelKey: "nav.svc.onsite" },
+  { href: "/services/data-center-services", labelKey: "nav.svc.datacenter" },
+  { href: "/services/staging-services", labelKey: "nav.svc.staging" },
+  { href: "/services/pre-deployment-validation", labelKey: "nav.svc.validation" },
+  { href: "/services/deployment-assurance", labelKey: "nav.svc.assurance" },
+  { href: "/services/local-coordination", labelKey: "nav.svc.coordination" },
 ];
 
 export default function Navbar() {
@@ -46,7 +47,7 @@ export default function Navbar() {
               alt="PrimeNode Technologies"
               width={340}
               height={102}
-              className="h-11 sm:h-14 md:h-16 lg:h-[4.25rem] w-auto max-w-[min(52vw,220px)] sm:max-w-none object-contain object-left"
+              className="h-[3.35rem] sm:h-14 md:h-16 lg:h-[4.25rem] w-auto max-w-[min(72vw,300px)] sm:max-w-none object-contain object-left"
               priority
             />
           </Link>
@@ -79,7 +80,7 @@ export default function Navbar() {
                       href={link.href}
                       className="block px-3 py-2.5 text-sm text-slate-700 rounded-lg hover:bg-brand-blue-light hover:text-brand-blue transition-colors"
                     >
-                      {link.label}
+                      {t(link.labelKey)}
                     </Link>
                   ))}
                 </div>
@@ -144,7 +145,7 @@ export default function Navbar() {
                     onClick={() => setIsMobileOpen(false)}
                     className="block px-4 py-2.5 text-sm text-slate-600 rounded-lg hover:bg-brand-blue-light hover:text-brand-blue transition-colors"
                   >
-                    {link.label}
+                    {t(link.labelKey)}
                   </Link>
                 ))}
               </div>

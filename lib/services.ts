@@ -6,10 +6,12 @@ import {
   CheckSquare,
   Users,
 } from "lucide-react";
+import type { ServiceI18nPrefix } from "./i18n/service-keys";
 
 export const services = [
   {
     slug: "on-site-it-support",
+    i18nPrefix: "onsite" satisfies ServiceI18nPrefix,
     icon: Wrench,
     title: "On-site IT Support",
     tagline: "Reliable field engineers, wherever you need them",
@@ -28,6 +30,7 @@ export const services = [
   },
   {
     slug: "data-center-services",
+    i18nPrefix: "datacenter" satisfies ServiceI18nPrefix,
     icon: Server,
     title: "Data Center Services",
     tagline: "Precision execution in high-control environments",
@@ -46,6 +49,7 @@ export const services = [
   },
   {
     slug: "staging-services",
+    i18nPrefix: "staging" satisfies ServiceI18nPrefix,
     icon: PackageCheck,
     title: "Staging Services",
     tagline: "Hardware prepared before it reaches site",
@@ -64,6 +68,7 @@ export const services = [
   },
   {
     slug: "pre-deployment-validation",
+    i18nPrefix: "validation" satisfies ServiceI18nPrefix,
     icon: ShieldCheck,
     title: "Pre-Deployment Validation",
     tagline: "Catch defects before the field does",
@@ -82,6 +87,7 @@ export const services = [
   },
   {
     slug: "deployment-assurance",
+    i18nPrefix: "assurance" satisfies ServiceI18nPrefix,
     icon: CheckSquare,
     title: "Deployment Assurance",
     tagline: "Controlled releases, fewer surprises",
@@ -100,6 +106,7 @@ export const services = [
   },
   {
     slug: "local-coordination",
+    i18nPrefix: "coordination" satisfies ServiceI18nPrefix,
     icon: Users,
     title: "Local Coordination",
     tagline: "Your on-ground execution bridge in China",

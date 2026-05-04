@@ -3,31 +3,51 @@
 import { motion } from "framer-motion";
 import Button from "@/components/ui/Button";
 import { ArrowRight, Mail } from "lucide-react";
+import { useI18n } from "@/components/i18n/I18nProvider";
+import type { MessageKey } from "@/lib/i18n/messages";
 
 interface CTABannerProps {
+  eyebrowKey?: MessageKey;
+  eyebrow?: string;
   title?: string;
+  titleKey?: MessageKey;
   subtitle?: string;
+  subtitleKey?: MessageKey;
   primaryLabel?: string;
+  primaryLabelKey?: MessageKey;
   primaryHref?: string;
   secondaryLabel?: string;
+  secondaryLabelKey?: MessageKey;
   secondaryHref?: string;
 }
 
 export default function CTABanner({
-  title = "Ready to Execute Your China IT Project?",
-  subtitle = "Partner with PrimeNode and get EU-grade quality with China-speed execution. Let's discuss your project today.",
-  primaryLabel = "Get a Free Quote",
+  eyebrowKey,
+  eyebrow,
+  title,
+  titleKey,
+  subtitle,
+  subtitleKey,
+  primaryLabel,
+  primaryLabelKey,
   primaryHref = "/contact",
-  secondaryLabel = "View Our Services",
+  secondaryLabel,
+  secondaryLabelKey,
   secondaryHref = "/services",
 }: CTABannerProps) {
+  const { t } = useI18n();
+
+  const eyebrowText = eyebrowKey ? t(eyebrowKey) : eyebrow ?? t("cta.conv.eyebrow");
+  const titleText = titleKey ? t(titleKey) : title ?? t("cta.home.title");
+  const subtitleText = subtitleKey ? t(subtitleKey) : subtitle ?? t("cta.home.subtitle");
+  const primaryText = primaryLabelKey ? t(primaryLabelKey) : primaryLabel ?? t("cta.home.primary");
+  const secondaryText = secondaryLabelKey ? t(secondaryLabelKey) : secondaryLabel ?? t("cta.home.secondary");
+
   return (
     <section className="bg-brand-navy py-16 sm:py-20 relative overflow-hidden">
-      {/* Soft glows — tuned for navy */}
       <div className="absolute top-0 right-0 w-[min(90vw,400px)] h-[min(90vw,400px)] bg-brand-blue/20 rounded-full blur-[100px] pointer-events-none" aria-hidden />
       <div className="absolute bottom-0 left-0 w-[min(80vw,300px)] h-[min(80vw,300px)] bg-brand-blue/15 rounded-full blur-[80px] pointer-events-none" aria-hidden />
 
-      {/* Geometric shapes — readable on dark blue */}
       <div
         className="pointer-events-none absolute top-8 left-[8%] w-16 h-16 sm:w-20 sm:h-20 rounded-2xl border-2 border-white/15 rotate-12"
         aria-hidden
@@ -60,20 +80,20 @@ export default function CTABanner({
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <span className="inline-flex items-center gap-2 text-brand-blue-mid text-xs sm:text-sm font-semibold tracking-widest uppercase mb-4">
+          <span className="inline-flex items-center justify-center gap-2 text-brand-blue-mid text-xs sm:text-sm font-semibold tracking-widest uppercase mb-4">
             <Mail size={14} className="shrink-0" />
-            Start a Conversation
+            {eyebrowText}
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight mb-4 px-1">
-            {title}
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight mb-4 px-1 text-balance">
+            {titleText}
           </h2>
-          <p className="text-slate-300 text-base sm:text-lg leading-relaxed mb-8 max-w-2xl mx-auto px-1">
-            {subtitle}
+          <p className="text-slate-300 text-base sm:text-lg leading-relaxed mb-8 max-w-2xl mx-auto px-1 text-balance">
+            {subtitleText}
           </p>
 
-          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4">
+          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 max-w-md mx-auto sm:max-w-none">
             <Button href={primaryHref} variant="primary" size="lg" className="w-full sm:w-auto justify-center">
-              {primaryLabel} <ArrowRight size={18} />
+              {primaryText} <ArrowRight size={18} />
             </Button>
             <Button
               href={secondaryHref}
@@ -81,7 +101,7 @@ export default function CTABanner({
               size="lg"
               className="w-full sm:w-auto justify-center border-white/30 text-white hover:bg-white hover:text-brand-navy"
             >
-              {secondaryLabel}
+              {secondaryText}
             </Button>
           </div>
         </motion.div>

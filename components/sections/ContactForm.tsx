@@ -4,6 +4,8 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { Send, CheckCircle, AlertCircle } from "lucide-react";
 import { clsx } from "clsx";
+import { useI18n } from "@/components/i18n/I18nProvider";
+import type { MessageKey } from "@/lib/i18n/messages";
 
 type ServiceType =
   | "on-site-support"
@@ -24,19 +26,20 @@ interface FormData {
   message: string;
 }
 
-const serviceOptions: { value: ServiceType; label: string }[] = [
-  { value: "on-site-support", label: "On-site IT Support" },
-  { value: "data-center", label: "Data Center Services" },
-  { value: "staging", label: "Staging Services" },
-  { value: "validation", label: "Pre-Deployment Validation" },
-  { value: "assurance", label: "Deployment Assurance" },
-  { value: "coordination", label: "Local Coordination" },
-  { value: "other", label: "Multiple / Not Sure Yet" },
+const serviceOptions: { value: ServiceType; labelKey: MessageKey }[] = [
+  { value: "on-site-support", labelKey: "nav.svc.onsite" },
+  { value: "data-center", labelKey: "nav.svc.datacenter" },
+  { value: "staging", labelKey: "nav.svc.staging" },
+  { value: "validation", labelKey: "nav.svc.validation" },
+  { value: "assurance", labelKey: "nav.svc.assurance" },
+  { value: "coordination", labelKey: "nav.svc.coordination" },
+  { value: "other", labelKey: "form.opt.other" },
 ];
 
 type SubmitStatus = "idle" | "loading" | "success" | "error";
 
 export default function ContactForm() {
+  const { t } = useI18n();
   const [submitStatus, setSubmitStatus] = useState<SubmitStatus>("idle");
 
   const {
@@ -77,15 +80,14 @@ export default function ContactForm() {
     return (
       <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-12 text-center shadow-sm">
         <CheckCircle size={48} className="text-emerald-500 mx-auto mb-4" />
-        <h3 className="text-2xl font-bold text-emerald-800 mb-2">Message Sent!</h3>
-        <p className="text-emerald-700 mb-6">
-          Thank you for reaching out. We&apos;ll review your project details and get back to you within 24 business hours.
-        </p>
+        <h3 className="text-2xl font-bold text-emerald-800 mb-2">{t("form.successTitle")}</h3>
+        <p className="text-emerald-700 mb-6">{t("form.successBody")}</p>
         <button
+          type="button"
           onClick={() => setSubmitStatus("idle")}
           className="bg-brand-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-brand-blue-hover transition-colors"
         >
-          Send Another Message
+          {t("form.sendAnother")}
         </button>
       </div>
     );
@@ -93,34 +95,29 @@ export default function ContactForm() {
 
   return (
     <div className="bg-white/90 backdrop-blur rounded-2xl border border-brand-blue/20 p-8 shadow-[0_20px_52px_rgba(11,82,236,0.18)]">
-      <h3 className="text-xl font-bold text-brand-navy mb-2">Project Enquiry</h3>
-      <p className="text-slate-500 text-sm mb-6">
-        Fill in the details below and we&apos;ll prepare a tailored proposal for your China project.
-      </p>
+      <h3 className="text-xl font-bold text-brand-navy mb-2">{t("form.title")}</h3>
+      <p className="text-slate-500 text-sm mb-6">{t("form.subtitle")}</p>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-        {/* Name + Company */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label className="block text-xs font-semibold text-slate-600 uppercase tracking-wide mb-1.5">
-              Full Name <span className="text-red-500">*</span>
+              {t("form.name")} <span className="text-red-500">*</span>
             </label>
             <input
-              {...register("name", { required: "Name is required" })}
-              placeholder="John Smith"
+              {...register("name", { required: t("form.err.name") })}
+              placeholder={t("form.ph.name")}
               className={clsx(inputClasses, errors.name && errorClasses)}
             />
-            {errors.name && (
-              <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>
-            )}
+            {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>}
           </div>
           <div>
             <label className="block text-xs font-semibold text-slate-600 uppercase tracking-wide mb-1.5">
-              Company <span className="text-red-500">*</span>
+              {t("form.company")} <span className="text-red-500">*</span>
             </label>
             <input
-              {...register("company", { required: "Company is required" })}
-              placeholder="Acme IT Services"
+              {...register("company", { required: t("form.err.company") })}
+              placeholder={t("form.ph.company")}
               className={clsx(inputClasses, errors.company && errorClasses)}
             />
             {errors.company && (
@@ -129,55 +126,52 @@ export default function ContactForm() {
           </div>
         </div>
 
-        {/* Email + Phone */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label className="block text-xs font-semibold text-slate-600 uppercase tracking-wide mb-1.5">
-              Email <span className="text-red-500">*</span>
+              {t("form.email")} <span className="text-red-500">*</span>
             </label>
             <input
               {...register("email", {
-                required: "Email is required",
+                required: t("form.err.email"),
                 pattern: {
                   value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                  message: "Enter a valid email address",
+                  message: t("form.err.emailPattern"),
                 },
               })}
               type="email"
-              placeholder="john@company.com"
+              placeholder={t("form.ph.email")}
               className={clsx(inputClasses, errors.email && errorClasses)}
             />
-            {errors.email && (
-              <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>
-            )}
+            {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
           </div>
           <div>
             <label className="block text-xs font-semibold text-slate-600 uppercase tracking-wide mb-1.5">
-              Phone <span className="text-slate-400 font-normal">(optional)</span>
+              {t("form.phone")}{" "}
+              <span className="text-slate-400 font-normal">{t("form.phoneOpt")}</span>
             </label>
             <input
               {...register("phone")}
               type="tel"
-              placeholder="+1 234 567 8900"
+              placeholder={t("form.ph.phone")}
               className={inputClasses}
             />
           </div>
         </div>
 
-        {/* Service + Location */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label className="block text-xs font-semibold text-slate-600 uppercase tracking-wide mb-1.5">
-              Service Needed <span className="text-red-500">*</span>
+              {t("form.service")} <span className="text-red-500">*</span>
             </label>
             <select
-              {...register("service", { required: "Please select a service" })}
+              {...register("service", { required: t("form.err.service") })}
               className={clsx(inputClasses, "cursor-pointer", errors.service && errorClasses)}
             >
-              <option value="">Select a service...</option>
+              <option value="">{t("form.servicePlaceholder")}</option>
               {serviceOptions.map((opt) => (
                 <option key={opt.value} value={opt.value}>
-                  {opt.label}
+                  {t(opt.labelKey)}
                 </option>
               ))}
             </select>
@@ -187,11 +181,11 @@ export default function ContactForm() {
           </div>
           <div>
             <label className="block text-xs font-semibold text-slate-600 uppercase tracking-wide mb-1.5">
-              Project Location <span className="text-red-500">*</span>
+              {t("form.location")} <span className="text-red-500">*</span>
             </label>
             <input
-              {...register("projectLocation", { required: "Location is required" })}
-              placeholder="e.g. Shenzhen, Shanghai"
+              {...register("projectLocation", { required: t("form.err.location") })}
+              placeholder={t("form.ph.location")}
               className={clsx(inputClasses, errors.projectLocation && errorClasses)}
             />
             {errors.projectLocation && (
@@ -200,18 +194,17 @@ export default function ContactForm() {
           </div>
         </div>
 
-        {/* Message */}
         <div>
           <label className="block text-xs font-semibold text-slate-600 uppercase tracking-wide mb-1.5">
-            Project Details <span className="text-red-500">*</span>
+            {t("form.details")} <span className="text-red-500">*</span>
           </label>
           <textarea
             {...register("message", {
-              required: "Please describe your project",
-              minLength: { value: 20, message: "Please provide at least 20 characters" },
+              required: t("form.err.message"),
+              minLength: { value: 20, message: t("form.err.messageMin") },
             })}
             rows={5}
-            placeholder="Describe your project: scope, timeline, equipment, specific requirements..."
+            placeholder={t("form.ph.message")}
             className={clsx(inputClasses, "resize-none", errors.message && errorClasses)}
           />
           {errors.message && (
@@ -219,12 +212,11 @@ export default function ContactForm() {
           )}
         </div>
 
-        {/* Error State */}
         {submitStatus === "error" && (
           <div className="flex items-center gap-3 bg-red-50 border border-red-200 rounded-lg p-4">
             <AlertCircle size={18} className="text-red-500 shrink-0" />
             <p className="text-red-700 text-sm">
-              Something went wrong. Please try again or email us directly at{" "}
+              {t("form.err.generic")}{" "}
               <a href="mailto:info@primenodetech.com" className="font-semibold underline">
                 info@primenodetech.com
               </a>
@@ -232,7 +224,6 @@ export default function ContactForm() {
           </div>
         )}
 
-        {/* Submit */}
         <button
           type="submit"
           disabled={submitStatus === "loading"}
@@ -241,19 +232,17 @@ export default function ContactForm() {
           {submitStatus === "loading" ? (
             <>
               <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-              Sending...
+              {t("form.sending")}
             </>
           ) : (
             <>
               <Send size={18} />
-              Send Enquiry
+              {t("form.submit")}
             </>
           )}
         </button>
 
-        <p className="text-slate-400 text-xs text-center">
-          We respond to all enquiries within 24 business hours.
-        </p>
+        <p className="text-slate-400 text-xs text-center">{t("form.footerNote")}</p>
       </form>
     </div>
   );
