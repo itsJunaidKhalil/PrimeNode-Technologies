@@ -7,9 +7,9 @@ import HowItWorks from "@/components/sections/HowItWorks";
 import CTABanner from "@/components/sections/CTABanner";
 
 export const metadata: Metadata = {
-  title: "PrimeNode Technologies | China IT Execution Partner",
+  title: "PRIMENODE TECHNOLOGIES LTD | UK IT Execution Partner",
   description:
-    "PrimeNode Technologies is your trusted China IT execution partner. On-site support, staging, data center services, and pre-deployment validation across China.",
+    "PRIMENODE TECHNOLOGIES LTD is your trusted UK IT execution partner. UK-registered (Company No. 17315220). On-site support, staging, data center services, and pre-deployment validation across the United Kingdom.",
 };
 
 export default function HomePage() {

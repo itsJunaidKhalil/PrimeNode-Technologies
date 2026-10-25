@@ -18,16 +18,17 @@ const o = {
   "nav.svc.assurance": "Deployment Assurance",
   "nav.svc.coordination": "Local Coordination",
   "footer.tagline":
-    "Your trusted China IT execution partner. EU-grade quality, China-speed delivery — from Shenzhen to nationwide.",
+    "Your trusted China IT execution partner. EU-grade quality, China-speed delivery — from a UK-registered company.",
   "footer.company": "Company",
   "footer.services": "Services",
   "footer.contact": "Contact",
   "footer.copyright": "All rights reserved.",
-  "footer.legal": "© {year} PrimeNode Technologies Shenzhen Co. All rights reserved.",
-  "footer.wfoe": "Registered WFOE · Shenzhen, China",
-  "footer.address": "Nanshan District, Shenzhen\nGuangdong, China",
+  "footer.legal": "© {year} PRIMENODE TECHNOLOGIES LTD. All rights reserved.",
+  "footer.wfoe": "Company No. 17315220 · United Kingdom",
+  "footer.address":
+    "71-75 Shelton Street, Covent Garden\nLondon, United Kingdom, WC2H 9JQ",
   "lang.label": "Language",
-  "hero.badge": "WFOE Registered · Shenzhen, China",
+  "hero.badge": "UK Registered · London",
   "hero.line1Before": "Your Trusted ",
   "hero.line1Accent": "China IT",
   "hero.line2Accent": "Execution",
@@ -63,9 +64,9 @@ const o = {
   "stats.2.value": "EU TZ",
   "stats.2.label": "Support Aligned",
   "stats.2.sub": "Real-time coordination",
-  "stats.3.value": "WFOE",
-  "stats.3.label": "Legally Registered",
-  "stats.3.sub": "Fully compliant China entity",
+  "stats.3.value": "LTD",
+  "stats.3.label": "UK Registered",
+  "stats.3.sub": "Company No. 17315220",
   "svcGrid.eyebrow": "What We Do",
   "svcGrid.title": "End-to-End IT Execution in China",
   "svcGrid.subtitle":
@@ -76,7 +77,7 @@ const o = {
   "why.title": "The China Execution Partner Built for Global Standards",
   "why.subtitle":
     "We don't just have a presence in China — we operate with the discipline and standards your global clients expect.",
-  "why.hl0": "WFOE legally registered in Shenzhen",
+  "why.hl0": "UK registered company (No. 17315220)",
   "why.hl1": "Nationwide coverage across 4+ major cities",
   "why.hl2": "Founder-led quality assurance",
   "why.hl3": "Aligned with EU time zones",
@@ -184,10 +185,10 @@ const o = {
   "page.contact.euBody":
     "We coordinate and communicate during European business hours (CET/CEST) so your team always has a responsive partner.",
   "page.about.eyebrow": "About PrimeNode",
-  "page.about.titleBefore": "China's IT Execution Hub for ",
+  "page.about.titleBefore": "UK-Based China IT Partner for ",
   "page.about.titleAccent": "Global Operations",
   "page.about.desc":
-    "We are a WFOE registered in Shenzhen, operating as a trusted local execution partner for international IT companies who need reliable, high-quality delivery in China.",
+    "We are PRIMENODE TECHNOLOGIES LTD, a UK-registered company based in London, operating as a trusted execution partner for international IT companies who need reliable, high-quality delivery in China.",
   "page.about.cta": "Work With Us",
   "page.about.visionTitle": "Our Vision",
   "page.about.visionBody":
@@ -198,9 +199,9 @@ const o = {
   "page.about.whoEyebrow": "Who We Are",
   "page.about.whoTitle": "Built for the Gap Between Global and Local",
   "page.about.whoP1":
-    "PrimeNode Technologies Shenzhen Co. was established to solve a persistent challenge: global IT companies need reliable execution in China, but struggle with local complexity, language barriers, and operational risk.",
+    "PRIMENODE TECHNOLOGIES LTD was established to solve a persistent challenge: global IT companies need reliable execution in China, but struggle with local complexity, language barriers, and operational risk.",
   "page.about.whoP2":
-    "We operate as a fully registered WFOE in Nanshan, Shenzhen — China's technology hub — giving our clients a legally compliant, professionally operated local partner they can trust.",
+    "We are a UK-registered limited company (Company No. 17315220) with correspondence at Shelton Street, Covent Garden, London — giving our clients a legally compliant, professionally operated partner they can trust.",
   "page.about.whoP3":
     "With a foundation built on European operational discipline and deep China market knowledge, we bring the best of both worlds to every project we execute.",
   "page.about.v0.title": "Reliability",
@@ -230,9 +231,10 @@ const o = {
   "page.about.ph4.desc":
     "Full nationwide operations covering all major Chinese cities and industrial zones.",
   "page.about.coverageEyebrow": "Coverage",
-  "page.about.coverageTitle": "Operating Across China's Key Hubs",
+  "page.about.coverageTitle": "UK Headquarters, China Delivery Hubs",
   "page.about.coverageSub":
-    "Headquartered in Shenzhen with active coverage expanding to Shanghai, Beijing, and Guangzhou — and growing.",
+    "Headquartered in London with active China coverage across Shenzhen, Shanghai, Beijing, and Guangzhou — and growing.",
+  "page.about.city.london": "London",
   "page.about.city.sz": "Shenzhen",
   "page.about.city.sh": "Shanghai",
   "page.about.city.bj": "Beijing",

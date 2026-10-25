@@ -1,8 +1,9 @@
-# PrimeNode Technologies Shenzhen Co. — Brand Guide
+# PRIMENODE TECHNOLOGIES LTD — Brand Guide
 
 ## Company Overview
-PrimeNode Technologies is a China-based WFOE (Wholly Foreign-Owned Enterprise) in Shenzhen.
-It operates as a local execution hub for international IT service providers, system integrators, and MSPs.
+PRIMENODE TECHNOLOGIES LTD is a UK-registered limited company (Company No. 17315220).
+Correspondence address: 71-75 Shelton Street, Covent Garden, London, United Kingdom, WC2H 9JQ.
+It operates as a UK IT execution partner for international IT service providers, system integrators, and MSPs.
 
 ---
 
@@ -92,7 +93,7 @@ Located in `/public/logos/`:
 
 ## Key Messages
 
-1. "Your trusted China IT execution partner"
-2. "EU-grade quality, China-speed execution"
+1. "Your trusted UK IT execution partner"
+2. "Professional quality, rapid UK execution"
 3. "Reducing deployment risk through pre-validation"
-4. "From Shenzhen to nationwide coverage"
+4. "UK-registered · Company No. 17315220 · London"

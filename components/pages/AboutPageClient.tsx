@@ -15,7 +15,8 @@ const activeByPhase: Record<number, boolean> = { 1: true, 2: true, 3: false, 4: 
 const valueIdx = [0, 1, 2, 3] as const;
 
 const cities: { cityKey: MessageKey; roleKey: MessageKey; primary: boolean }[] = [
-  { cityKey: "page.about.city.sz", roleKey: "page.about.cityRole.hq", primary: true },
+  { cityKey: "page.about.city.london", roleKey: "page.about.cityRole.hq", primary: true },
+  { cityKey: "page.about.city.sz", roleKey: "page.about.cityRole.active", primary: false },
   { cityKey: "page.about.city.sh", roleKey: "page.about.cityRole.active", primary: false },
   { cityKey: "page.about.city.bj", roleKey: "page.about.cityRole.active", primary: false },
   { cityKey: "page.about.city.gz", roleKey: "page.about.cityRole.active", primary: false },
@@ -141,7 +142,7 @@ export default function AboutPageClient() {
           subtitle={t("page.about.coverageSub")}
         />
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
           {cities.map((loc) => (
             <div
               key={loc.cityKey}

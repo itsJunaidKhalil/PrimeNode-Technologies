@@ -16,11 +16,11 @@ export const services = [
     title: "On-site IT Support",
     tagline: "Reliable field engineers, wherever you need them",
     shortDescription:
-      "Rapid dispatch for installation, troubleshooting, and maintenance across key China locations.",
+      "Rapid dispatch for installation, troubleshooting, and maintenance across key UK locations.",
     description:
-      "We dispatch qualified IT engineers to customer sites, data centers, and office locations across China. Our on-site support team handles installations, break-fix workflows, and planned maintenance aligned to your SOPs.",
+      "We dispatch qualified IT engineers to customer sites, data centers, and office locations across the UK. Our on-site support team handles installations, break-fix workflows, and planned maintenance aligned to your SOPs.",
     features: [
-      "Field engineer dispatch across major China cities",
+      "Field engineer dispatch across major UK cities",
       "Hardware installation and device bring-up",
       "Troubleshooting and fault resolution",
       "Planned maintenance and support tasks",
@@ -37,7 +37,7 @@ export const services = [
     shortDescription:
       "Rack-and-stack, structured cabling, and installation support delivered to global standards.",
     description:
-      "From rack and stack to fiber and copper cabling, our data center team delivers clean, compliant installation support across tier-1 facilities in China.",
+      "From rack and stack to fiber and copper cabling, our data center team delivers clean, compliant installation support across tier-1 facilities across the UK.",
     features: [
       "Rack and stack deployments",
       "Fiber optic and copper cabling",
@@ -109,7 +109,7 @@ export const services = [
     i18nPrefix: "coordination" satisfies ServiceI18nPrefix,
     icon: Users,
     title: "Local Coordination",
-    tagline: "Your on-ground execution bridge in China",
+    tagline: "Your on-ground execution bridge in the UK",
     shortDescription:
       "Vendor communication, scheduling, and milestone tracking with timezone-aligned updates.",
     description:
@@ -117,7 +117,7 @@ export const services = [
     features: [
       "Vendor and supplier communication",
       "Scheduling and local logistics coordination",
-      "EU business-hours update cadence",
+      "UK business-hours update cadence",
       "Milestone and status reporting",
       "Import/customs coordination support",
       "On-site presence for critical phases",

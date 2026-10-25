@@ -19,34 +19,35 @@ const sora = Sora({
 
 export const metadata: Metadata = {
   title: {
-    default: "PrimeNode Technologies | China IT Execution Partner",
-    template: "%s | PrimeNode Technologies",
+    default: "PRIMENODE TECHNOLOGIES LTD | UK IT Execution Partner",
+    template: "%s | PRIMENODE TECHNOLOGIES LTD",
   },
   description:
-    "PrimeNode Technologies is your trusted China IT execution partner. On-site support, staging, data center services, and pre-deployment validation across China — delivered to global standards.",
+    "PRIMENODE TECHNOLOGIES LTD is your trusted UK IT execution partner. UK-registered (Company No. 17315220), London. On-site support, staging, data center services, and pre-deployment validation across the United Kingdom.",
   keywords: [
-    "China IT support",
-    "WFOE IT services",
-    "Shenzhen IT execution",
-    "MSP China partner",
-    "data center staging China",
-    "IT deployment China",
+    "UK IT support",
+    "UK IT company",
+    "PrimeNode Technologies Ltd",
+    "MSP UK partner",
+    "data center staging UK",
+    "IT deployment UK",
     "pre-deployment validation",
+    "London IT company",
   ],
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "en_GB",
     url: "https://www.primenodetech.com",
-    siteName: "PrimeNode Technologies",
-    title: "PrimeNode Technologies | China IT Execution Partner",
+    siteName: "PRIMENODE TECHNOLOGIES LTD",
+    title: "PRIMENODE TECHNOLOGIES LTD | UK IT Execution Partner",
     description:
-      "Your trusted China IT execution partner. On-site support, staging, data center services, and pre-deployment validation — delivered to EU-grade standards.",
+      "Your trusted UK IT execution partner. On-site support, staging, data center services, and pre-deployment validation — delivered nationwide.",
     images: [
       {
         url: "/logos/logo-primary.png",
         width: 1200,
         height: 630,
-        alt: "PrimeNode Technologies",
+        alt: "PRIMENODE TECHNOLOGIES LTD",
       },
     ],
   },

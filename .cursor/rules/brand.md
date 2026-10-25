@@ -1,7 +1,8 @@
 # PrimeNode Brand & Code Standards
 
 ## Company
-PrimeNode Technologies Shenzhen Co. — China-based IT execution hub for global MSPs and system integrators.
+PRIMENODE TECHNOLOGIES LTD (Company No. 17315220) — UK-registered company based in London. UK IT execution partner for MSPs and system integrators.
+Correspondence: 71-75 Shelton Street, Covent Garden, London, United Kingdom, WC2H 9JQ.
 
 ## Brand Colors (Tailwind CSS classes)
 - **Primary Blue**: `bg-brand-blue` / `text-brand-blue` → #0B52EC (logo designer)
@@ -44,4 +45,4 @@ PrimeNode Technologies Shenzhen Co. — China-based IT execution hub for global 
 ## Tone of Voice
 - Professional, confident, trustworthy, action-oriented
 - Short sentences. Clear value props. No filler words.
-- Emphasize: reliability, EU standards, China execution speed, risk reduction
+- Emphasize: reliability, UK standards, rapid execution, risk reduction
